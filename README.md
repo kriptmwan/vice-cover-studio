@@ -4,55 +4,65 @@
 
 # Vice Cover Studio
 
-Turn a photo and a caption into a multi-panel cover in the Vice City poster
-style — bold Anton lettering, a neon-script subtitle, a sunset or neon grade,
-and a heat meter of stars — then export it as a PNG in the common post sizes.
+Vice Cover Studio turns one photo and one line of text into a poster-style
+cover that looks like it came off a Vice City billboard: chunky display type,
+a glowing script subtitle, a sunset or neon colour grade, and a row of stars
+rating the heat. When it looks right, save it as a PNG sized for the feed or
+for stories.
 
-It is an offline web app: open it in a desktop browser, pick a layout and a
-grade, drop in any photo (or use the built-in demo photos), drag each panel's
-photo into place, and export. Photos never leave the machine; there is no
-server, no account and no upload.
+Everything runs in your own browser, with nothing uploaded anywhere. Open the
+app, choose a panel layout and a grade, drop in a photo of your own (or start
+from one of the photos and painted scenes that ship with it), nudge each photo
+into place inside its panel, and export. There is no server behind it, no
+account to make, and your photos never leave your machine.
 
-## Run it
+## Getting started
 
 ```sh
 node serve.ts            # serves app/ on http://localhost:8080
 ```
 
-Node 22 or later. No dependencies, no build step.
+You need Node 22 or newer. There are no dependencies to install and no build
+step to run.
 
-## What it does
+## Inside the studio
 
-- **6 layouts** — Four Corners, Hero + Three, Full Bleed, Nine Panel, Tilted
-  Snaps and Film Strip.
-- **5 gradient-map grades** — Vice Sunset, Neon Night, Palm Gold, Teal Noir
-  and Hot Pink, remapped per panel.
-- **Lettering** — Anton display caps with a sunset gradient fill, Pacifico
-  neon-script subtitle, halftone title block, badge ribbon and star heat meter.
-- **Any photo** — upload your own, or use the two sample photos and the two
-  scenes the app paints itself (a neon street, a sunset palm beach). Per-panel
-  crop: click a panel, drag to move, scroll to zoom, or use the sliders.
-- **Export** — 1080×1080, 1080×1350, 1920×1080 and 1080×1920 (story), one at a
-  time or all at once, as PNG.
-- **Polish** — film grain, vignette, undo/redo, caption presets.
+- **Six panel layouts** — Four Corners, Hero + Three, Full Bleed, Nine Panel,
+  Tilted Snaps and Film Strip.
+- **Five colour grades** — Vice Sunset, Neon Night, Palm Gold, Teal Noir and
+  Hot Pink. Each grade is a gradient map applied panel by panel, so the same
+  photo can feel like dusk in one panel and midnight neon in the next.
+- **Poster lettering** — big Anton capitals filled with a sunset gradient, a
+  Pacifico subtitle in neon script, a halftone title block, a badge ribbon
+  and a star heat meter.
+- **Your photos, your way** — bring your own image, or use the two bundled
+  sample photos and the two scenes the app draws for you (a neon street, a
+  palm beach at sunset). Click a panel to crop: drag to reposition, scroll to
+  zoom, or fine-tune with the sliders.
+- **Exports for every feed** — 1080×1080, 1080×1350, 1920×1080 and 1080×1920
+  for stories, saved one by one or all together as PNG.
+- **Finishing touches** — film grain, a vignette, undo and redo, plus caption
+  presets when you want a starting point.
 
-## Screenshots
+## Previewing shots
 
-`shots.json` lists the four shots; `?shot=cover` shows a finished cover alone
-and `?shot=editor` the editor with a cover loaded, e.g.
+The four preview shots are listed in `shots.json`. Add `?shot=cover` to see a
+finished cover on its own, or `?shot=editor` to open the editor with a cover
+already loaded — for example
 `http://localhost:8080/?shot=cover&layout=quad&grade=sunset&caption=Neon%20Shore`.
 
-## Files
+## What's in the repo
 
-- `main.ts` — entrypoint: copies `app/` and `screenshots/` to the output
-  directory and writes `dossier.json`.
-- `app/` — the offline app (`index.html`, `style.css`, `src/*.js`).
-- `app/fonts/` — Anton and Pacifico (SIL Open Font License; see
-  `OFL-Anton.txt` and `OFL-Pacifico.txt` beside them).
+- `main.ts` — the entry point: it copies `app/` and `screenshots/` into the
+  output directory and writes `dossier.json`.
+- `app/` — the app itself (`index.html`, `style.css`, `src/*.js`), fully
+  offline.
+- `app/fonts/` — Anton and Pacifico under the SIL Open Font License
+  (`OFL-Anton.txt` and `OFL-Pacifico.txt` sit next to them).
 - `app/samples/` — two sample photos made for make.fun, free to use.
 
-Original cover art made with this tool. Not affiliated with Rockstar Games;
-no official artwork, logos or fonts are used.
+Every cover here is original art made with this tool. It is not affiliated
+with Rockstar Games, and it uses no official artwork, logos or fonts.
 
 ## License
 
